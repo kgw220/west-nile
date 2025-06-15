@@ -22,14 +22,16 @@ The City of Chicago and the Chicago Public Health Department (CPHD) have resorte
 when WNV is detected to kill the infected mosquites and prevent the virus' spread. 
 
 ### Goal
-Ideally, the main goal is to build an accurate predictive model to help predict when there are 
+The main goal is to build an accurate predictive model to help predict when there are 
 spikes in WNV based on the historical data gathered thus far, which can help city officials more 
 efficiently and effectively allocate resources towards preventing transmission of this potentially 
-deadly virus.
+deadly virus. Not only that, but further insights and (theoretical) propositions are given
+based on the trends that were highlighted throughout the process.
 
 ### Methodology
 This project is split up into different notebooks to help split up each major task. 
 
+#### First Task
 The first task is to gather the data. Mosquito trap data was pulled with City of Chicago's API. Originally, 
 I had wanted to gather as much updated information  as possible, but I had issues with gathering related
 data regarding spray applications from GIS and weather data from NOAA that was up to date. So, the data I
