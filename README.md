@@ -1,9 +1,8 @@
-# west-nile
+# Mosquito Watch
 
-Data comes from the source here: 
-https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/about_data
+## Background
 
-This dataset tracks the presence of West Nile Virus* (WNV) in mosquito populations across Chicago. 
+This project detects the presence of West Nile Virus* (WNV) in mosquito populations across Chicago. 
 Traps were placed around Chicago to help track the amount of mosquitoes in different areas.
 They are then grouped into pools, and tested in a lab to determine if any in the group carry WNV. 
 Each row represents one test of a mosquito pool from a specific trap on a specific date, with 
