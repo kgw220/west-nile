@@ -29,29 +29,48 @@ deadly virus. Not only that, but further insights and (theoretical) propositions
 based on the trends that were highlighted throughout the process.
 
 ### Methodology
-This project is split up into different notebooks to help split up each major task. 
+This project is split up into different python files/notebooks to help split up each major task. 
 
 #### First Task
 The first task is to gather the data. Mosquito trap data was pulled with City of Chicago's API. Originally, 
-I had wanted to gather as much updated information  as possible, but I had issues with gathering related
+I had wanted to gather as much updated information as possible, but I had issues with gathering related
 data regarding spray applications from GIS and weather data from NOAA that was up to date. So, the data I
 have covers the period from 2007 - 2014, which covers the rough time period where I was able to retrieve 
 data for all 3 sources. Please refer to the Data Sources section at the very bottom of the README for 
 more details on the exact source.
 
+### Future Work
+The biggest thing is to fix the data issue so I can gather fully up to date data, which I annotated with 
+TODOs in the first task.
+
 ## Data Sources
 
 ### Mosquito Trap Data 
-Source: [City of Chicago](https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/about_data))
-The data dictionary to define each column is in the hyperlink, so it is not included here.
+
+| Column Name          | Data Type | Description                              | Notes                       |
+| --------------------- | --------- | ---------------------------------------- | --------------------------- |
+| Date                  | DateTime  | Date the row's data come from            |                             |
+| Address               | String    | Approximate address of the location of trap. Used for GeoCoder |  |
+| Species               | String    | Species of mosquito for that row of data |                             |
+| Block                 | Integer   | Block Number of trap address             |                             |
+| Street                | String    | Street name of trap address              |                             |
+| Trap                  | String    | Trap ID                                   |                             |
+| AddressNumberAndStreet| String    | Address and street of the trap           |                             |
+| Latitude              | Float     | Trap latitude                             |                             |
+| Longitude             | Float     | Trap longitude                            |                             |
+| AddressAccuracy       | Integer   | Accuracy of trap address returned from GeoCoder |             |
+| NumMosquitos          | Integer   | Number of mosquitoes of a particular species found in a trap |  |
+| WnvPresent            | Boolean   | Whether or not West Nile Virus was found in the sample |  |
+
+Source: [City of Chicago](https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/about_data)
 
 ---
 
-### Weather Data (from nearby weather stations Chicago O'Hare and Midway)
+### Weather Data from Nearby Weather Stations Chicago O'Hare and Midway
 
 | Column Name  | Data Type | Description                             | Notes                              |
 | ------------- | --------- | --------------------------------------- | ---------------------------------- |
-| Station       | Integer   | Which station the data in the row come from | Station 1 or Station 2          |
+| Station       | Integer   | Which station the data in the row come from | Station 1 = Chicago O-Hare, Station 2 = Midway |
 | Date          | DateTime  | Date the row’s data come from           |                                    |
 | Tmin          | Integer   | Minimum temperature that date           |                                    |
 | Tmax          | Integer   | Maximum temperature that date           |                                    |
@@ -77,22 +96,14 @@ Source: [NOAA](https://www.ncdc.noaa.gov/cdo-web/datatools/findstation)
 
 ---
 
-### Trap Data
+### Spray Data
 
-| Column Name          | Data Type | Description                              | Notes                       |
-| --------------------- | --------- | ---------------------------------------- | --------------------------- |
-| Date                  | DateTime  | Date the row's data come from            |                             |
-| Address               | String    | Approximate address of the location of trap. Used for GeoCoder |  |
-| Species               | String    | Species of mosquito for that row of data |                             |
-| Block                 | Integer   | Block Number of trap address             |                             |
-| Street                | String    | Street name of trap address              |                             |
-| Trap                  | String    | Trap ID                                   |                             |
-| AddressNumberAndStreet| String    | Address and street of the trap           |                             |
-| Latitude              | Float     | Trap latitude                             |                             |
-| Longitude             | Float     | Trap longitude                            |                             |
-| AddressAccuracy       | Integer   | Accuracy of trap address returned from GeoCoder |             |
-| NumMosquitos          | Integer   | Number of mosquitoes of a particular species found in a trap |  |
-| WnvPresent            | Boolean   | Whether or not West Nile Virus was found in the sample |  |
+| Column Name | Data Type | Description                  | Notes |
+| ------------|-----------|--------------------------------|-------|
+| Date        | DateTime  | Date when the data was recorded |       |
+| Time        | Time      | Time when the data was recorded |       |
+| Latitude    | Float     | Latitude coordinate of the observation location | |
+| Longitude   | Float     | Longitude coordinate of the observation location | |
 
 Source: [ArcGIS](https://hub.arcgis.com/)
 
