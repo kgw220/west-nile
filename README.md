@@ -1,4 +1,6 @@
 # Mosquito Watch
+This project aims to analyze and model the distribution of the potentially deadly West Nile Virus 
+around the Chicago area.
 
 ## Background
 
