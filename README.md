@@ -2,7 +2,7 @@
 
 ### Background
 This project aims to analyze and model the distribution of the potentially deadly West Nile Virus 
-around the Chicago area.
+around the Chicago area, as the local mosquito population can carry this virus.
 
 West Nile Virus (WNV) is an infectious disease that was discovered in 1937 in the West Nile region 
 of Uganda. It started spreading to the United States in 1999, via infected mosquitos. Most people
