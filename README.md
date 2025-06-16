@@ -89,7 +89,7 @@ Source: [City of Chicago](https://data.cityofchicago.org/Health-Human-Services/W
 | StnPressure   | Float     | Average station pressure                |                                    |
 | SeaLevel      | Float     | Sea level pressure (inches of Hg)       |                                    |
 | ResultSpeed   | Float     | Resultant wind speed (mph)              | Resultant wind = vector sum of wind speeds and directions |
-| ResultDir     | Integer   | Resultant wind direction (degrees)      | Resultant wind = vector sum of wind speeds and directions |
+| ResultDir     | Integer   | Resultant wind direction (degrees)      | Resultant wind = vector sum of wind speeds and directions. Scale of 10 per integer. |
 | AvgSpeed      | Integer   | Average wind speed                      |                                    |
 
 Source: [NOAA](https://www.ncdc.noaa.gov/cdo-web/datatools/findstation)
