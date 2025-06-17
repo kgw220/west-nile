@@ -32,16 +32,19 @@ based on the trends that were highlighted throughout the process.
 This project is split up into different python files/notebooks to help split up each major task. 
 
 #### First Task (`data_retrieval.py`)
-The first task is to gather the data. Mosquito trap data was pulled with City of Chicago's API. Originally, 
-I had wanted to gather as much updated information as possible, but I had issues with gathering related
-data regarding spray applications from GIS and weather data from NOAA that was up to date. So, the data I
-have covers the period from 2007 - 2014, which covers the rough time period where I was able to retrieve 
-data for all 3 sources. Please refer to the Data Sources section at the very bottom of the README for 
-more details on the exact source.
+The first task is to gather the data. Mosquito trap data was pulled with City of Chicago's API. 
+Weather and spray data was from NOAA and ArcGIS respectively.
+
+NOTE: Originally, I had wanted to gather as much updated information as possible, but I had issues
+with gathering related data regarding spray applications from GIS and weather data from NOAA that 
+was up to date. So, the data I have covers the period from 2007 - 2014, which covers the rough time 
+period where I was able to retrieve data for all 3 sources. Please refer to the Data Sources 
+section at the very bottom of the README for more details on the exact source.
 
 ### Future Work
 The biggest thing is to fix the data issue so I can gather fully up to date data, which I annotated with 
-TODOs in the first task.
+TODOs in the first task. Similarly, I would like to properly incorperate the spray data, since I decided
+not to worry about using it due to only having data for 2011/2013 (right now, the project does not use it).
 
 ## Data Sources
 
