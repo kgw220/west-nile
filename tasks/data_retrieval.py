@@ -27,19 +27,15 @@ results = client.get("jqe8-8r6s", limit=50000)
 # Convert to pandas DataFrame
 results_df = pd.DataFrame.from_records(results)
 
-# Having issues with weather data beyond 2014, so data is limited to before 2015
+# Having issues with weather data for certain dates, so filter the results to working dates
 results_df["date"] = pd.to_datetime(results_df["date"])
-results_df = results_df[results_df["date"] < "2015-01-01"]
+results_df = results_df[results_df["date"].dt.year.isin([2007, 2009, 2011, 2013])]
 
 # For convienence, save a static copy (to ensure data stays the same throughout my work on this
 # project). But ideally, it would be best to automatically pull the latest data from the API.
-results_df.to_pickle("../data/mosquito_data.pkl")
+results_df.to_pickle("../data/mosquito.pkl")
 
-
-# Converting weather and spray data, downloaded manually, to pickle format for easier access later.
-# TODO: Get more updated weather and spray data, as these are static copies (e.g. using API)
+# Converting weather data, downloaded manually, to pickle format for easier access later.
+# TODO: Get more updated weather data, as these are static copies (e.g. using API)
 weather_df = pd.read_csv("weather.csv")
 weather_df.to_pickle("../data/weather.pkl")
-
-spray_df = pd.read_csv("spray.csv")
-spray_df.to_pickle("../data/spray.pkl")
