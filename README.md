@@ -45,6 +45,11 @@ The biggest thing is to fix the data issue so I can gather fully up to date data
 TODOs in the first task. There were several issues, which led me to not being able to gather as much data
 as I would've liked.
 
+A very minor thing (that I don't think matters in the long run) is to display the correlation matrix of
+all possible features in my EDA notebook. I displayed individual correlation matrices for the weather and 
+mosquito trap data, but this of course does not display any correlation with features across both. However,
+since I performed feature selection with mRMR at the very end, this is probably being nitpicky and unnecessary.
+
 ## Data Sources
 
 ### Mosquito Trap Data 
