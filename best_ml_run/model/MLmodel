@@ -1,0 +1,37 @@
+artifact_path: model
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.6.0
+    model_class: lightgbm.sklearn.LGBMClassifier
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.13.3
+is_signature_from_type_hint: false
+mlflow_version: 2.22.0
+model_size_bytes: 902827
+model_uuid: 2d76e38925b94f93a3ca0db112cdd41f
+prompts: null
+run_id: a104f38fe7f64ecba4a7195bfdc82427
+signature:
+  inputs: '[{"type": "integer", "name": "year", "required": true}, {"type": "double",
+    "name": "AvgSpeed", "required": true}, {"type": "double", "name": "trap_percent_with_wnv2",
+    "required": true}, {"type": "long", "name": "BR", "required": true}, {"type":
+    "long", "name": "TS", "required": true}, {"type": "double", "name": "trap_percent_with_wnv",
+    "required": true}, {"type": "double", "name": "DewPoint", "required": true}, {"type":
+    "double", "name": "WetBulb", "required": true}, {"type": "double", "name": "Sunrise",
+    "required": true}, {"type": "double", "name": "Tmin", "required": true}, {"type":
+    "long", "name": "TSRA", "required": true}, {"type": "double", "name": "ResultSpeed",
+    "required": true}, {"type": "double", "name": "Cool", "required": true}, {"type":
+    "integer", "name": "day_of_year", "required": true}, {"type": "double", "name":
+    "Tavg", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1,
+    2]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-06-25 22:29:04.969575'
