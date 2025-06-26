@@ -28,6 +28,9 @@ efficiently and effectively allocate resources towards preventing transmission o
 deadly virus. Not only that, but further insights and (theoretical) propositions are given
 based on the trends that were highlighted throughout the process.
 
+Also, causal-based ML is performed to help highlight specific factors that may heavily influence 
+the presence of WNV.
+
 ### Methodology
 This project is split up into different python files/notebooks to help split up each major task, 
 each of which are in the tasks directory.
