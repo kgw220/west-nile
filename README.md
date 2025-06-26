@@ -38,17 +38,67 @@ Weather data was from NOAA.
 
 #### Second Task (`EDA_preprocessing.py`)
 The second task is to preprocess the data for modeling. This involved correcting datatypes, filling 
-missing values, feature engineering, and feature selection.
+missing values, feature engineering, and feature selection. I also merged the mosquito trap data
+and the weather data collected from the first task.
 
-### Future Work
+### Third Task (`model_selection.py`)
+The third task was to take the model-ready data from the previous task, and find the best fitting model. 
+I chose to stick with a LightGBMClassifier model, given it has many benefits.
+I did this with an MLFlow pipeline help keep track of metrics/feature importances, optimizing 
+hyperparameters with the help of `hyperopt`'s TPE algorithm. I then refit a champion model by using 
+the best set of hyperparameters by combining the validation and training data, and testing with the 
+testing data. A final measure of model performance utilized ROC/AUC, since the positive class was rare.
+
+Given the results, I made a business recommendation on a potential cost saving measure, given the model 
+was not good at predicting WNV positive tests, explained more in detail below.
+
+### Fourth Task (still WIP, planned to perform CausalML)
+N/A
+
+### Results 
+#### Third Task:
+The champion LGBMClassifier model ended up with a cross-validated ROC/AUC score of 0.83, which is fairly
+good, given 0.5 is equivalent to random guessing. The test ROC/AUC score was slightly lower at 0.75.
+However, given the data was imbalanced, the overall zero recall was much higher than the non-zero recall, 
+and we really want to focus on correctly predicting when WNV *is* present, not when it is not.
+
+As such, because even a small false positive rate results in a very large number in false positives (there
+are thousands of mosquito specimans tested each year, and from the data, about 95% do not have WNV), it
+is not ideal to focus on creating the best predictive model for when WNV is positive. Spraying can be 
+expensive and of course, harmful to the environment when it is sprayed when not needed. Instead, this can
+be used by the City of Chicago and CPHD to help determine which species need to be sent for testing, and 
+which don't. If a specific species always has a very low, near-zero probability of testing positive, the 
+city should just not send it in for testing to save money. With an estimate of $100 per lab test, this 
+quickly adds up to significant cost savings with all the testing that is completed (as indicated with
+the mosquito trap data!). The table below helps to highlight such savings at various predictive thresholds,
+based on the champion model with all the data:
+
+| **TPR/Recall Level (% of actual WNV-positive cases predicted correctly)** | **Prediction Threshold (probability needed to be predicted WNV-positive)** | **Estimated # of Traps to Avoid Testing (predicted WNV-negative)** | **Estimated Annual Savings (based on $100 per test)** |
+|---------------------------------------------------------------------|------------------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------------|
+| 80%                                                                 | 0.13444                                                            | 2,284                                                                         | $228,475                                             |
+| 85%                                                                 | 0.12948                                                            | 2,274                                                                          | $227,450                                               |
+| 90%                                                                 | 0.11911                                                            | 2,259                                                                         | $225,950                                               |
+| 95%                                                                 | 0.11062                                                            | 2,244                                                                          | $224,450                                               |
+| 100%                                                                | 0.10147                                                            | 2,227                                                                           | $222,700                                               |
+
+Given the data, there is not any "obvious" TPR to suggest, but I would suggest a TPR of 85% for the City of Chicago and the Chicago Department of Public Health, since this is 
+the point before savings begins to dip at a faster rate compared to the other options. This means, that if 
+a mosquito specimen has an estimated probability greater than 15% of being WNV-positive, it should be sent
+for testing. This would lead to considerable cost savings, and help limit the number of WNV-positive mosquitoes
+that are missed.
+
+### NOTE/Future Work
+The results of the analysis in this project depend on several assumptions, namely that WNV prevalance does not 
+change significantly both temporally and spatially. Calculations will have to be adjusted if this is true, meaning more
+specimans would have to be tested, and thus, decrease savings. In particular, the data used here is only
+for specific years, so it is quite possible different trends do exist, but are not shown here. The data
+does show that there are areas where WNV becomes more common, which is important to keep in mind. 
+
 The biggest thing is to fix the data issue so I can gather fully up to date data, which I annotated with 
 TODOs in the first task. There were several issues, which led me to not being able to gather as much data
-as I would've liked.
-
-A very minor thing (that I don't think matters in the long run) is to display the correlation matrix of
-all possible features in my EDA notebook. I displayed individual correlation matrices for the weather and 
-mosquito trap data, but this of course does not display any correlation with features across both. However,
-since I performed feature selection with mRMR at the very end, this is probably being nitpicky and unnecessary.
+as I would've liked. But the code acts as a framework for such future work, and it may be relevant if patterns are still
+consistent. Perhaps the City of Chicago can implement periodic testing where WNV was not previously seen to 
+encase these possible patterns.
 
 ## Data Sources
 
