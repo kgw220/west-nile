@@ -83,7 +83,7 @@ based on the champion model with all the data:
 
 Given the data, there is not any "obvious" TPR to suggest, but I would suggest a TPR of 85% for the City of Chicago and the Chicago Department of Public Health, since this is 
 the point before savings begins to dip at a faster rate compared to the other options. This means, that if 
-a mosquito specimen has an estimated probability greater than 15% of being WNV-positive, it should be sent
+a mosquito specimen has an estimated probability greater than 12.9% of being WNV-positive, it should be sent
 for testing. This would lead to considerable cost savings, and help limit the number of WNV-positive mosquitoes
 that are missed.
 
