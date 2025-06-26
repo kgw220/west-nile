@@ -104,20 +104,21 @@ encase these possible patterns.
 
 ### Mosquito Trap Data 
 
-| Column Name          | Data Type | Description                              | Notes                       |
-| --------------------- | --------- | ---------------------------------------- | --------------------------- |
-| Date                  | DateTime  | Date the row's data come from            |                             |
-| Address               | String    | Approximate address of the location of trap. Used for GeoCoder |  |
-| Species               | String    | Species of mosquito for that row of data |                             |
-| Block                 | Integer   | Block Number of trap address             |                             |
-| Street                | String    | Street name of trap address              |                             |
-| Trap                  | String    | Trap ID                                   |                             |
-| AddressNumberAndStreet| String    | Address and street of the trap           |                             |
-| Latitude              | Float     | Trap latitude                             |                             |
-| Longitude             | Float     | Trap longitude                            |                             |
-| AddressAccuracy       | Integer   | Accuracy of trap address returned from GeoCoder |             |
-| NumMosquitos          | Integer   | Number of mosquitoes of a particular species found in a trap |  |
-| WnvPresent            | Boolean   | Whether or not West Nile Virus was found in the sample |  |
+| Column Name              | Data Type | Description                                                                 |
+|--------------------------|-----------|-----------------------------------------------------------------------------|
+| Date                     | DateTime  | Timestamp indicating when the trap data was collected                       |
+| Address                  | String    | General location where the trap was set; typically used for geocoding      |
+| Species                  | String    | Type of mosquito captured in the specific record                            |
+| Block                    | Integer   | Numerical identifier for the block location of the trap                     |
+| Street                   | String    | Street name corresponding to the trap's placement                           |
+| Trap                     | String    | Unique identifier for the mosquito trap                                     |
+| AddressNumberAndStreet   | String    | Combined address number and street name for precise location info           |
+| Latitude                 | Float     | Geographic latitude of the trap location                                    |
+| Longitude                | Float     | Geographic longitude of the trap location                                   |
+| AddressAccuracy          | Integer   | Quality score of the address returned by the geocoding process              |
+| NumMosquitos             | Integer   | Count of mosquitoes of the given species caught in the trap                 |
+| WnvPresent               | Boolean   | Indicates if West Nile Virus was detected in the sample (True or False)     |
+
 
 Source: [City of Chicago](https://data.cityofchicago.org/Health-Human-Services/West-Nile-Virus-WNV-Mosquito-Test-Results/jqe8-8r6s/about_data)
 
@@ -125,29 +126,29 @@ Source: [City of Chicago](https://data.cityofchicago.org/Health-Human-Services/W
 
 ### Weather Data from Nearby Weather Stations Chicago O'Hare and Midway
 
-| Column Name  | Data Type | Description                             | Notes                              |
-| ------------- | --------- | --------------------------------------- | ---------------------------------- |
-| Station       | Integer   | Which station the data in the row come from | Station 1 = Chicago O-Hare, Station 2 = Midway |
-| Date          | DateTime  | Date the row’s data come from           |                                    |
-| Tmin          | Integer   | Minimum temperature that date           |                                    |
-| Tmax          | Integer   | Maximum temperature that date           |                                    |
-| Tavg          | Integer   | Average temperature across the day      |                                    |
-| Depart        | Integer   | Difference from normal for that day     | Only available for Station 1       |
-| DewPoint      | Integer   | Average Dew Point Temperature           | Temperature where water vapor starts to condense out of the air |
-| WetBulb       | Integer   | Average Wet Bulb Temperature            | Adiabatic saturation temperature ([more info here](https://en.wikipedia.org/wiki/Wet-bulb_temperature)) |
-| Heat          | Integer   | 65 - Tavg (65-Tavg)                     |                                    |
-| Cool          | Integer   | Tavg - 65 (Tavg-65)                     |                                    |
-| Sunrise       | Time      | Sunrise time in military time           | Only available for Station 1       |
-| Sunset        | Time      | Sunset time in military time            | Only available for Station 1       |
-| CodeSum       | List      | Code(s) for various weather conditions  | e.g. F=Fog, H=Haze                 |
-| Depth         | Integer   | Precipitation Depth, if applicable (collected in 6hr) |                  |
-| Snowfall      | Float     | Snowfall (inches)                       |                                    |
-| PrecipTotal   | Float     | Rain (inches)                           |                                    |
-| StnPressure   | Float     | Average station pressure                |                                    |
-| SeaLevel      | Float     | Sea level pressure (inches of Hg)       |                                    |
-| ResultSpeed   | Float     | Resultant wind speed (mph)              | Resultant wind = vector sum of wind speeds and directions |
-| ResultDir     | Integer   | Resultant wind direction (degrees)      | Resultant wind = vector sum of wind speeds and directions. Scale of 10 per integer. |
-| AvgSpeed      | Integer   | Average wind speed                      |                                    |
+| Column Name   | Data Type | Description                                                                 | Notes                                                                 |
+|----------------|-----------|------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Station        | Integer   | Identifies which weather station the record is from                         | 1 = O'Hare, 2 = Midway                                                |
+| Date           | DateTime  | The date associated with the weather observation                            |                                                                       |
+| Tmin           | Integer   | Recorded lowest temperature for the day                                     |                                                                       |
+| Tmax           | Integer   | Recorded highest temperature for the day                                    |                                                                       |
+| Tavg           | Integer   | Average temperature over the course of the day                              |                                                                       |
+| Depart         | Integer   | Temperature deviation from the historical norm                              | Only provided for Station 1                                           |
+| DewPoint       | Integer   | Dew point temperature                                                        | Temperature where air becomes saturated (dew forms)                  |
+| WetBulb        | Integer   | Wet bulb temperature                                                         | Represents the adiabatic saturation temperature                       |
+| Heat           | Integer   | Heating degree days: calculated as 65 minus Tavg                             | Reflects heating needs                                                |
+| Cool           | Integer   | Cooling degree days: calculated as Tavg minus 65                             | Reflects cooling needs                                                |
+| Sunrise        | Time      | Sunrise time in 24-hour (military) format                                   | Present only for Station 1                                            |
+| Sunset         | Time      | Sunset time in 24-hour (military) format                                    | Present only for Station 1                                            |
+| CodeSum        | List      | Coded indicators for observed weather conditions                            | Examples: F=Fog, H=Haze                                               |
+| Depth          | Integer   | Depth of precipitation (if collected), in tenths of inches                  | Usually refers to 6-hour accumulation                                 |
+| Snowfall       | Float     | Snowfall in inches                                                          |                                                                       |
+| PrecipTotal    | Float     | Total precipitation (inches)                                                | Includes rain and melted snow                                         |
+| StnPressure    | Float     | Atmospheric pressure measured at the station                                |                                                                       |
+| SeaLevel       | Float     | Sea-level adjusted pressure (in inches of Hg)                               |                                                                       |
+| ResultSpeed    | Float     | Computed wind speed from vector components                                  | Combines directional wind vectors                                     |
+| ResultDir      | Integer   | Computed wind direction from vector components (degrees)                    | Scale of 10; derived from wind vector calculations                    |
+| AvgSpeed       | Integer   | Mean wind speed over the day                                                |                                                                       |
+
 
 Source: [NOAA](https://www.ncdc.noaa.gov/cdo-web/datatools/findstation)
-
