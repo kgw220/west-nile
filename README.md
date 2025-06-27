@@ -39,12 +39,12 @@ each of which are in the tasks directory.
 The first task is to gather the data. Mosquito trap data was pulled with City of Chicago's API. 
 Weather data was from NOAA.
 
-#### Second Task (`EDA_preprocessing.py`)
+#### Second Task (`EDA_preprocessing.ipynb`)
 The second task is to preprocess the data for modeling. This involved correcting datatypes, filling 
 missing values, feature engineering, and feature selection. I also merged the mosquito trap data
 and the weather data collected from the first task.
 
-### Third Task (`model_selection.py`)
+#### Third Task (`model_selection.ipynb`)
 The third task was to take the model-ready data from the previous task, and find the best fitting model. 
 I chose to stick with a LightGBMClassifier model, given it has many benefits.
 I did this with an MLFlow pipeline help keep track of metrics/feature importances, optimizing 
