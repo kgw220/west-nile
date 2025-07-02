@@ -98,8 +98,7 @@ that are missed.
 #### Fourth Task
 It was confirmed that seasonality was a very significant factor with causing WNV. In particular, the ITE/ATE was
 much higher in the summer months than the winter months. Alongside that, having higher temperatures
-also led to a higher ITE. However, conflicting weather such as high wind and rain/thunderstorms 
-would muddle these effects. A table of the ATEs with the corresponding interpretation is listed below:
+also led to a higher ITE. A table of the ATEs with the corresponding interpretation is listed below:
 
 | Feature | ATE |
 | :--- | :--- |
@@ -151,8 +150,7 @@ would muddle these effects. A table of the ATEs with the corresponding interpret
 
 Overall, this highlights what is suspected. Spraying should be done on a careful basis based on these factors.
 Instead of spraying on a regular schedule, it should be done when these specific, predictive conditions are
-met to be more targetted and to help avoid wasting funds on spraying when it is ineffective (e.g. rain).
-For example, spraying should be done on cooler days or days immediately following rain. It may be helpful
+met to be more targetted and to help avoid wasting funds on spraying when it is ineffective. It may be helpful
 to develop some kind of risk-alert system with NOAA to help provide a level when enough conditions are fulfilled.
 
 ### NOTE/Future Work
