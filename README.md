@@ -98,7 +98,7 @@ that are missed.
 #### Fourth Task
 It was confirmed that seasonality was a very significant factor with causing WNV. In particular, the ITE/ATE was
 much higher in the summer months than the winter months. Alongside that, having higher temperatures
-also led to a higher ITE. A table of the ATEs with the corresponding interpretation is listed below:
+also led to a higher ITE. A table of the individual ATEs with the corresponding interpretation is listed below:
 
 | Feature | ATE |
 | :--- | :--- |
@@ -147,6 +147,8 @@ also led to a higher ITE. A table of the ATEs with the corresponding interpretat
 * **ResultDir (Resultant Wind Direction):**
     * **Meaning:** The average wind direction over 24 hours, measured in degrees (1-360) in 10 degree units.
     * **ATE Interpretation:** Each additional 10 degrees in wind direction (clockwise) is associated with a **0.06 percentage point decrease** in the probability of WNV.
+
+Refer to the notebook for more in depth analysis.
 
 Overall, this highlights what is suspected. Spraying should be done on a careful basis based on these factors.
 Instead of spraying on a regular schedule, it should be done when these specific, predictive conditions are
